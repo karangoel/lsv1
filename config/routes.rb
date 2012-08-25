@@ -1,5 +1,7 @@
 Lsv1::Application.routes.draw do
   
+  resources :students
+
   root :to => "lights#new"
   resources :lights
 
