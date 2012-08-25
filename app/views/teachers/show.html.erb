@@ -1,0 +1,62 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @teacher.name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @teacher.email %>
+</p>
+
+<p>
+  <b>Teacher:</b>
+  <%= @teacher.teacher_id %>
+</p>
+
+<p>
+  <b>Courses Taught:</b>
+  
+  
+  
+  
+
+  <ol>
+  <% @teacher.courses.each do |c| %>
+    <li><%= c.title %>
+    
+      
+      <ol>
+      
+      <% c.topics.each do |t| %>
+        <li>
+        
+        <% if t.current_topic == true %>
+          <b><u>
+           <%= t.name %>
+           <%= "- CURRENT TOPIC" %>
+           </b></u>
+        <% else %>
+            <%= t.name %>
+            <%= link_to "Make Current Topic", topics_url(:topic => {:current_topic => true}), :method => 'put' %>
+        <% end %>
+          
+            <br/>
+          <% t.lights.each do |l| %>
+            <%= image_tag("#{l.color}.png", :size => "20x20") %>
+          <% end %>
+      
+          
+          </li>
+      <% end %>
+      </ol>
+      
+    </li>
+  <% end %>
+  </ol>
+</p>  
+
+
+<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
+<%= link_to 'Back', teachers_path %>

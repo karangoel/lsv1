@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @topic.name %>
+</p>
+
+<p>
+  <b>Course:</b>
+  <%= @topic.course_id %>
+</p>
+
+<p>
+  <ol>
+  <% @topic.lights.each do |l| %>
+    <li>
+    
+    <%= image_tag("#{l.color}.png", :size => "60x60") %><br/>
+    </li>
+  <% end %>
+  </ol>
+</p>  
+
+<%= link_to "signal", new_light_url(topic_id: @topic.id)%>
+
+<%= link_to 'Edit', edit_topic_path(@topic) %> |
+<%= link_to 'Back', topics_path %>

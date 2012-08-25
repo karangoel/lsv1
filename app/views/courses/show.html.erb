@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @course.title %>
+</p>
+
+<p>
+  <b>Section:</b>
+  <%= @course.section %>
+</p>
+
+<p>
+  <b>Teacher:</b>
+  <%= @course.teacher_id %>
+</p>
+
+<p>
+  <b>Topics Covered:</b>
+  <ol>
+  <% @course.topics.each do |t| %>
+    <li><%= t.name %></li>
+  <% end %>
+  </ol>
+</p>  
+
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
