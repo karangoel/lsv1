@@ -4,5 +4,5 @@ class Course < ActiveRecord::Base
   has_many :enrollments
   has_many :students, :through => :enrollments
   has_many :topics
-  has_many :signals, :through => :topics
+  # has_many :lights, :through => :topics
 end
