@@ -10,10 +10,6 @@
   <%= @teacher.email %>
 </p>
 
-<p>
-  <b>Teacher:</b>
-  <%= @teacher.teacher_id %>
-</p>
 
 <p>
   <b>Courses Taught:</b>
@@ -24,9 +20,11 @@
 
   <ol>
   <% @teacher.courses.each do |c| %>
-    <li><%= c.title %>
-    
+    <li><h4><%= c.title %> | Section: <%= c.section %> | 
+
+      <%= link_to "(Add Topic)", teacher_url(course_id: c.id)%></h4>
       
+
       <ol>
       
       <% c.topics.each do |t| %>
@@ -51,10 +49,16 @@
           </li>
       <% end %>
       </ol>
-      
+      <br/>
     </li>
   <% end %>
   </ol>
+  
+  <%= link_to "Add Courses", teacher_url(teacher_id: @teacher.id), :class => "add_course", :remote => true %>
+  <br />
+  <br />
+  <%= link_to "form goes here", :class => "forms" %>
+  <%= render "courses/form" %>
 </p>  
 
 

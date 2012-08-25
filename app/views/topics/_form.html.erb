@@ -15,10 +15,8 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.number_field :course_id %>
-  </div>
+
+    <%= f.hidden_field :course_id, value: params[:course_id] %>
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -3,6 +3,10 @@
     <div id="error_explanation">
       <h2><%= pluralize(@course.errors.count, "error") %> prohibited this course from being saved:</h2>
 
+
+
+
+
       <ul>
       <% @course.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
@@ -10,6 +14,7 @@
       </ul>
     </div>
   <% end %>
+  
 
   <div class="field">
     <%= f.label :title %><br />
@@ -19,10 +24,10 @@
     <%= f.label :section %><br />
     <%= f.text_field :section %>
   </div>
-  <div class="field">
-    <%= f.label :teacher_id %><br />
-    <%= f.number_field :teacher_id %>
-  </div>
+  
+  <%= f.hidden_field :teacher_id, value: params[:teacher_id] %>
+  <%= f.hidden_field :teacher_id, value: params[:teacher_id] %>
+
   <div class="actions">
     <%= f.submit %>
   </div>

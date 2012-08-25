@@ -13,3 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(".add_course").click(function() {
+  $(".new_course").hide;
+});
