@@ -27,11 +27,9 @@
 <p>
   <b>Students Enrolled:</b>
   <ol>
-    <% if @course.enrollment? %>
       <% @course.students.each do |s| %>
         <li><%= s.name %></li>
       <% end %>
-    <% end %>  
   </ol>
 </p>
 

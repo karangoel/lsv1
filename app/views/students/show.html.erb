@@ -18,29 +18,15 @@
   
   
 
-  <ol>
-  <% @student.courses.each do |c| %>
-    <li><h4><%= c.title %> | Section: <%= c.section %> | 
+<% @student.enrollments.each do |e| %>
+<ul>
+  	<li><%= e.course.title %></li>
+		<% e.lights.each do |l| %>
+			<%= image_tag l.color + '.png', size: '20x20' %>
+   <% end %>
+</ul>
+<% end %>
 
-     
-
-      <ol>
-      
-      <% c.topics.each do |t| %>
-        <li>
-            <%= t.name %></li>
-          <% t.lights.each do |l| %>
-            <%= image_tag("#{l.color}.png", :size => "20x20") %>
-          <% end %>
-      
-          
-          </li>
-      <% end %>
-      </ol>
-      <br/>
-    </li>
-  <% end %>
-  </ol>
 
 </p>  
 
