@@ -11,5 +11,39 @@
 </p>
 
 
+<p>
+  <b>Courses Enrolled In:</b>
+  
+  
+  
+  
+
+  <ol>
+  <% @student.courses.each do |c| %>
+    <li><h4><%= c.title %> | Section: <%= c.section %> | 
+
+     
+
+      <ol>
+      
+      <% c.topics.each do |t| %>
+        <li>
+            <%= t.name %></li>
+          <% t.lights.each do |l| %>
+            <%= image_tag("#{l.color}.png", :size => "20x20") %>
+          <% end %>
+      
+          
+          </li>
+      <% end %>
+      </ol>
+      <br/>
+    </li>
+  <% end %>
+  </ol>
+
+</p>  
+
+
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>

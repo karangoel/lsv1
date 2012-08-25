@@ -24,6 +24,16 @@
   </ol>
 </p>  
 
+<p>
+  <b>Students Enrolled:</b>
+  <ol>
+    <% if @course.enrollment? %>
+      <% @course.students.each do |s| %>
+        <li><%= s.name %></li>
+      <% end %>
+    <% end %>  
+  </ol>
+</p>
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
