@@ -1,4 +1,6 @@
 class LightsController < ApplicationController
+  before_filter :authorize, only: [:edit, :update]
+
   # GET /lights
   # GET /lights.json
   def index

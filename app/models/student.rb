@@ -1,5 +1,9 @@
 class Student < ActiveRecord::Base
-  attr_accessible :email, :name
+  has_secure_password
+
+  attr_accessible :email, :name, :password, :password_confirmation
+  validates_uniqueness_of :email
+  
   has_many :enrollments
   has_many :courses, :through => :enrollments
   has_many :topics, :through => :courses

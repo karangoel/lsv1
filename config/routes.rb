@@ -1,9 +1,14 @@
 Lsv1::Application.routes.draw do
   
+  resources :sessions
+
+  get 'signup', to: 'students#new', as: 'signup'  
+  get 'login', to: 'sessions#new', as: 'login'
+  get 'logout', to: 'sessions#destroy', as: 'logout'
+
   resources :enrollments
 
   resources :students
-
   root :to => "lights#new"
   resources :lights
 
