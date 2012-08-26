@@ -57,9 +57,8 @@
   <%= link_to "Add Courses", teacher_url(teacher_id: @teacher.id), :class => "add_course", :remote => true %>
   <br />
   <br />
-  <%= link_to "form goes here", :class => "forms" %>
-  <%= render "courses/form" %>
 </p>  
+<%= render "courses/form" %>
 
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
