@@ -1,5 +1,7 @@
 class StudentsController < ApplicationController
 
+  before_filter :authorize, only: [:show]
+
 
   # GET /students
   # GET /students.json
@@ -15,8 +17,11 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @student = Student.find(params[:id])
-
+    if params[:id].nil? 
+        @student = current_student
+    else 
+        @student = Student.find params[:id]
+    end
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @student }

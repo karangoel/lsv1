@@ -16,7 +16,6 @@ class LightsController < ApplicationController
   # GET /lights/1.json
   def show
     @light = Light.find(params[:id])
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @light }
@@ -27,8 +26,7 @@ class LightsController < ApplicationController
   # GET /lights/new.json
   def new
     @light = Light.new
-
-    respond_to do |format|
+        respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @light }
     end
@@ -59,6 +57,9 @@ class LightsController < ApplicationController
   # PUT /lights/1.json
   def update
     @light = Light.find(params[:id])
+    @light.topic_id = params[:topic_id]
+    @light.enrollment_id = params[:enrollment_id]
+    @light.student_id = params[:student_id]
 
     respond_to do |format|
       if @light.update_attributes(params[:light])

@@ -1,23 +1,10 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <b>Name:</b>
-  <%= @student.name %>
-</p>
-
 <p>
   <b>Email:</b>
   <%= @student.email %>
 </p>
-
-
 <p>
   <b>Courses Enrolled In:</b>
-  
-  
-  
-  
-
 <% @student.enrollments.each do |e| %>
 <ul>
   	<li><%= e.course.title %></li>
@@ -26,13 +13,7 @@
    <% end %>
 </ul>
 <% end %>
-
-
 </p>  
-
-
-
-
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
