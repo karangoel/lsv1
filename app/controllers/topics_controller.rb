@@ -1,6 +1,7 @@
 class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
+
   def index
     @topics = Topic.all
 
@@ -57,16 +58,15 @@ class TopicsController < ApplicationController
   # PUT /topics/1.json
   def update
     @topic = Topic.find(params[:id])
-
-    respond_to do |format|
-      if @topic.update_attributes(params[:topic])
-        format.html { redirect_to @topic, notice: 'Topic was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @topic.errors, status: :unprocessable_entity }
-      end
+    Topic.where(:current_topic => true).each do |topic|
+      topic.current_topic = false
+      topic.save
     end
+    @topic.current_topic = true
+    @topic.save 
+    redirect_to teacher_url(params[:teacher_id])
+    
+ 
   end
 
   # DELETE /topics/1

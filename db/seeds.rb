@@ -4,6 +4,12 @@
 # Examples:
 #
 
+Course.destroy_all
+Enrollment.destroy_all
+Topic.destroy_all
+Light.destroy_all
+Student.destroy_all
+
 course = Course.create([{ title: 'History of USA', section: 'M-F', teacher_id: 1 }])
 course = Course.create([{ title: 'History of India', section: 'M-F', teacher_id: 1 }])
 course = Course.create([{ title: 'History of Turkmenistan', section: 'M-F', teacher_id: 1 }])
@@ -53,4 +59,3 @@ topic = Topic.create([{name: "Strings", course_id: 5}])
 topic = Topic.create([{name: "Variables", course_id: 5}])
 topic = Topic.create([{name: "Arrays", course_id: 5}])
 
-student = User.create([{name: "Karan Goel", email: "karan@goel.com", password_digest: "$2a$10$n9A8Y7gcLMK7NR7FpOXATeUY1meCZddP7zkcILi.e7igqku/uD2U."}])

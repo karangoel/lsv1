@@ -13,10 +13,10 @@ Lsv1::Application.routes.draw do
   resources :lights
 
   resources :topics
-
+  
   resources :courses
 
-  resources :teachers
+  resources :teachers 
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
