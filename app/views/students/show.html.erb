@@ -1,5 +1,5 @@
   <div class="row-fluid">
-    <div class="span2">
+    <div class="span4">
 	<h3>My Profile</h3>
 		<p>
 		  <b>Name:</b>
@@ -11,10 +11,6 @@
 		  <%= @student.email %>
 		</p>
 		<%= link_to 'Edit your profile', edit_student_path(@student) %> 
-
-    </div>
-    <div class="span10">
-		<p id="notice"><%= notice %></p>
 		<p>
 		  <h3>Courses Enrolled In:</h3>
 		<% @student.enrollments.each do |e| %>
@@ -26,6 +22,11 @@
 		</ul>
 		<% end %>
 		</p>  
+		
+
+    </div>
+    <div class="span8">
+		<p id="notice"><%= notice %></p>
 
     </div>
   </div>

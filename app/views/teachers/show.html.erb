@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <b>Teacher Name:</b>
   <%= @teacher.name %>
 </p>
 
@@ -31,10 +31,10 @@
         <li>
         
         <% if t.current_topic == true %>
-          <b><u>
+          <b><font color="green">
            <%= t.name %>
            <%= "- CURRENT TOPIC" %>
-           </b></u>
+           </b></font>
         <% else %>
             <%= t.name %>
             <%= link_to "make current", "#{topic_url(t.id)}?teacher_id=#{@teacher.id}", :method => "put" %>
@@ -54,7 +54,7 @@
   <% end %>
   </ol>
   
-  <%= link_to "Add Courses", teacher_url(teacher_id: @teacher.id), :class => "add_course", :remote => true %>
+ <h4><%= link_to "(Add Course)", teacher_url(teacher_id: @teacher.id), :class => "add_course", :remote => true %></h4>
   <br />
   <br />
 </p>  
