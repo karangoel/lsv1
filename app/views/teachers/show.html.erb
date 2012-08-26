@@ -37,7 +37,7 @@
            </b></u>
         <% else %>
             <%= t.name %>
-            <%= link_to "Make Current Topic", topics_url(:topic => {:current_topic => true}), :method => 'put' %>
+            <%= link_to "make current", "#{topic_url(t.id)}?teacher_id=#{@teacher.id}", :method => "put" %>
         <% end %>
           
             <br/>
