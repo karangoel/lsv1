@@ -17,7 +17,6 @@ class Course < ActiveRecord::Base
   
   def being_taught?
     current_topics.present?
-    
   end
   
 end

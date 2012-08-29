@@ -4,6 +4,10 @@
 # Examples:
 #
 
+student = Student.create([{ name: "John Doe", email: "johndoe@gmail.com", password: "12345", password_confirmation: "12345"}])
+student = Student.create([{ name: "Steve Coyle", email: "csteve@gmail.com"}])
+
+
 course = Course.create([{ title: 'History of USA', section: 'M-F', teacher_id: 1 }])
 course = Course.create([{ title: 'History of India', section: 'M-F', teacher_id: 1 }])
 course = Course.create([{ title: 'History of Turkmenistan', section: 'M-F', teacher_id: 1 }])

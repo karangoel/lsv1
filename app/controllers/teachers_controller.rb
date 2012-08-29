@@ -72,8 +72,6 @@ class TeachersController < ApplicationController
     end
   end
 
-  # DELETE /teachers/1
-  # DELETE /teachers/1.json
   def destroy
     @teacher = Teacher.find(params[:id])
     @teacher.destroy

@@ -1,18 +1,13 @@
 class TopicsController < ApplicationController
-  # GET /topics
-  # GET /topics.json
-
   def index
     @topics = Topic.all
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html 
       format.json { render json: @topics }
     end
   end
 
-  # GET /topics/1
-  # GET /topics/1.json
   def show
     @topic = Topic.find(params[:id])
 
@@ -22,8 +17,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  # GET /topics/new
-  # GET /topics/new.json
   def new
     @topic = Topic.new
 
@@ -33,13 +26,10 @@ class TopicsController < ApplicationController
     end
   end
 
-  # GET /topics/1/edit
   def edit
     @topic = Topic.find(params[:id])
   end
 
-  # POST /topics
-  # POST /topics.json
   def create
     @topic = Topic.new(params[:topic])
 
@@ -54,8 +44,6 @@ class TopicsController < ApplicationController
     end
   end
 
-  # PUT /topics/1
-  # PUT /topics/1.json
   def update
     @topic = Topic.find(params[:id])
     Topic.where(:current_topic => true).each do |topic|
@@ -69,8 +57,6 @@ class TopicsController < ApplicationController
  
   end
 
-  # DELETE /topics/1
-  # DELETE /topics/1.json
   def destroy
     @topic = Topic.find(params[:id])
     @topic.destroy

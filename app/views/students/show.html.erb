@@ -1,19 +1,14 @@
-  <div class="row-fluid">
-    <div class="span6">
-		 
-		
-		<p>Hi  <%= @student.email %></p>
-		
-		<% @student.current_courses.each do |course| %>
-		  <p>You are currently in 
-		
-		  	<b><%= course.title  %></b> Course.
-			<p>Now current topic is		
-				<% course.current_topics.each do |t| %>
-				<b><%= t.name %></b>
-		   <% end %>
-		
-		
+<div class="row-fluid">
+  <div class="span6">
+
+
+<p>Hi  <%= @student.email %></p>
+<% @student.current_courses.each do |course| %>
+<p>You are currently in <b><%= course.title  %></b> Course.
+<p>Now current topic is	<% course.current_topics.each do |t| %> <b><%= t.name %></b>
+<% end %>
+<% end %>
+
 		<p>Please use buttons below to let your teacher know your pace</p>
 
 		<%= form_for(@light) do |f| %>
@@ -38,10 +33,4 @@
 		    <%= f.submit :type => :image, :src => "/assets/blue.png" %>
 		<% end %>
 		
-		
-		<% end %>
-		</p>  
 		<%= "You are not logged into any courses yet!" if @student.current_courses.empty? %>
-		
-		
-

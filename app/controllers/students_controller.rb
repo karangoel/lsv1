@@ -3,37 +3,28 @@ class StudentsController < ApplicationController
   before_filter :authorize, only: [:show]
   before_filter :load_topic
 
-  before_filter :load_signals
-
-
-  # GET /students
-  # GET /students.json
   def index
     @students = Student.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @students }
     end
   end
 
-  # GET /students/1
-  # GET /students/1.json
   def show
     if params[:id].nil? 
-        @student = current_student
+      @student = current_student
     else 
-        @student = Student.find params[:id]
+      @student = Student.find params[:id]
     end
-    
+      @light = Light.new(:topic_id  => @topic.id, :student_id => current_student.id)
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.json { render json: @student }
     end
   end
 
-  # GET /students/new
-  # GET /students/new.json
   def new
     @student = Student.new
 
@@ -43,20 +34,14 @@ class StudentsController < ApplicationController
     end
   end
 
-  # GET /students/1/edit
   def edit
     @student = Student.find(params[:id])
   end
-
-  # POST /students
-  # POST /students.json
   def create
     @student = Student.new(params[:student])
-
     respond_to do |format|
       if @student.save
         session[:student_id] = @student.id
-        
         redirect_to root_url, notice: "Thank you for signing up!"
       else
         format.html { render action: "new" }
