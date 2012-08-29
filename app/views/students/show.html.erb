@@ -1,35 +1,47 @@
   <div class="row-fluid">
-    <div class="span4">
-	<h3>My Profile</h3>
-		<p>
-		  <b>Name:</b>
-		  <%= @student.name %>
-		</p>
-
-		<p>
-		  <b>Email:</b>
-		  <%= @student.email %>
-		</p>
-		<%= link_to 'Edit your profile', edit_student_path(@student) %> 
-		<p>
-		  <h3>Courses Enrolled In:</h3>
-		<% @student.enrollments.each do |e| %>
-		<ul>
-		  	<li><%= e.course.title %></li>
-				<% e.lights.each do |l| %>
-					<%= image_tag l.color + '.png', size: '20x20' %>
+    <div class="span6">
+		 
+		
+		<p>Hi  <%= @student.email %></p>
+		
+		<% @student.current_courses.each do |course| %>
+		  <p>You are currently in 
+		
+		  	<b><%= course.title  %></b> Course.
+			<p>Now current topic is		
+				<% course.current_topics.each do |t| %>
+				<b><%= t.name %></b>
 		   <% end %>
-		</ul>
+		
+		
+		<p>Please use buttons below to let your teacher know your pace</p>
+
+		<%= form_for(@light) do |f| %>
+			<%= f.hidden_field :topic_id %>
+			<%= f.hidden_field :color, :value => 'red' %>
+			<%= f.hidden_field :student_id %>
+		    <%= f.submit :type => :image, :src => "/assets/red.png", size: "30x30" %>
+		<% end %>
+
+		<%= form_for(@light) do |f| %>
+			<%= f.hidden_field :topic_id %>
+			<%= f.hidden_field :color, :value => 'green' %>
+			<%= f.hidden_field :student_id %>
+		    <%= f.submit :type => :image, :src => "/assets/green.png" %>
+		<% end %>
+
+
+		<%= form_for(@light) do |f| %>
+			<%= f.hidden_field :topic_id %>
+			<%= f.hidden_field :color, :value => 'blue' %>
+			<%= f.hidden_field :student_id %>
+		    <%= f.submit :type => :image, :src => "/assets/blue.png" %>
+		<% end %>
+		
+		
 		<% end %>
 		</p>  
+		<%= "You are not logged into any courses yet!" if @student.current_courses.empty? %>
 		
-
-    </div>
-    <div class="span8">
-		<p id="notice"><%= notice %></p>
-
-    </div>
-  </div>
-
-
+		
 

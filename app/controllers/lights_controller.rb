@@ -1,5 +1,6 @@
 class LightsController < ApplicationController
   before_filter :authorize, only: [:edit, :update]
+  before_filter :load_topic, only: :new
 
   # GET /lights
   # GET /lights.json
@@ -25,7 +26,7 @@ class LightsController < ApplicationController
   # GET /lights/new
   # GET /lights/new.json
   def new
-    @light = Light.new
+    @light = Light.new(:topic_id  => @topic.id, :student_id => current_student.id)
         respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @light }
@@ -40,11 +41,12 @@ class LightsController < ApplicationController
   # POST /lights
   # POST /lights.json
   def create
-    @light = Light.new(params[:light])
+    # raise params.inspect
+    @light = Light.new(params[:light])    
 
     respond_to do |format|
       if @light.save
-        format.html { redirect_to @light, notice: 'Light was successfully created.' }
+        format.html { redirect_to :action=>"show", :controller=>"students" }
         format.json { render json: @light, status: :created, location: @light }
       else
         format.html { render action: "new" }

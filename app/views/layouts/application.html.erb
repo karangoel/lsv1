@@ -12,9 +12,8 @@
 	  <div class="navbar-inner">
 		<%= link_to "Learning Signal", root_url, :class => "brand"%>
 	    <ul class="nav">
-	      <li class="active"><a href="#">Home</a></li>
-	      <li><a href="/lights/new?student_id=1&topic_id=1">Signals</a></li>
-	      <li><a href="/teachers/1">test teacher</a></li>
+	      <li class="active"><a href="/">Home</a></li>
+	      <li><a href="/teachers">Teacher Page</a></li>
 	
 		<% if current_student %>
 		  <li><a>Logged in as <%= current_student.email %> </a> </li><li><%= link_to "Log Out", logout_path %></li>

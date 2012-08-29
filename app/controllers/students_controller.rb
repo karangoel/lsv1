@@ -1,6 +1,9 @@
 class StudentsController < ApplicationController
 
   before_filter :authorize, only: [:show]
+  before_filter :load_topic
+
+  before_filter :load_signals
 
 
   # GET /students
@@ -22,6 +25,7 @@ class StudentsController < ApplicationController
     else 
         @student = Student.find params[:id]
     end
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @student }
@@ -88,4 +92,7 @@ class StudentsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+
+
 end

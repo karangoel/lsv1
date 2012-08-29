@@ -11,5 +11,17 @@ class ApplicationController < ActionController::Base
   def authorize
     redirect_to login_url, alert: "Not authorized" if current_student.nil?
   end
+
+
+
+private
+def load_topic
+  @topic = Topic.where(:current_topic => true).first
+end
+
+private
+def load_signals
+  @light = Light.new(:topic_id  => @topic.id, :student_id => current_student.id)
+end
   
 end

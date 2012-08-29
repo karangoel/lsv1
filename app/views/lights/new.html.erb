@@ -1,5 +1,23 @@
 <h1>How is it going?</h1>
 
-<%= link_to image_tag("red.png"), lights_url(:light => {:color => "red", :topic_id => params[:topic_id], :enrollment_id => params[:enrollment_id], :student_id => params[:student_id]  }), :method => 'post' %><br/>
-<%= link_to image_tag("green.png"), lights_url(:light => {:color => "green", :topic_id => params[:topic_id]}), :method => 'post' %><br/>
-<%= link_to image_tag("blue.png"), lights_url(:light => {:color => "blue", :topic_id => params[:topic_id]}), :method => 'post' %><br/>
+<%= form_for(@light) do |f| %>
+	<%= f.hidden_field :topic_id %>
+	<%= f.hidden_field :color, :value => 'red' %>
+	<%= f.hidden_field :student_id %>
+    <%= f.submit :type => :image, :src => "/assets/red.png" %>
+<% end %>
+
+<%= form_for(@light) do |f| %>
+	<%= f.hidden_field :topic_id %>
+	<%= f.hidden_field :color, :value => 'green' %>
+	<%= f.hidden_field :student_id %>
+    <%= f.submit :type => :image, :src => "/assets/green.png" %>
+<% end %>
+
+
+<%= form_for(@light) do |f| %>
+	<%= f.hidden_field :topic_id %>
+	<%= f.hidden_field :color, :value => 'blue' %>
+	<%= f.hidden_field :student_id %>
+    <%= f.submit :type => :image, :src => "/assets/blue.png" %>
+<% end %>

@@ -8,4 +8,13 @@ class Student < ActiveRecord::Base
   has_many :courses, :through => :enrollments
   has_many :topics, :through => :courses
   has_many :lights, :through => :topics
+  
+  def current_courses
+    current = []
+    courses.each do |course|
+      current << course if course.being_taught?
+    end
+    current
+  end
+
 end
